@@ -3,7 +3,7 @@
     <!-- <img src="./assets/logo.png"> -->
      <nav>
       <div class="container">
-        <ul class="nav_left">
+        <ul class="nav__left">
 
           <!-- Navigation Links -->
           <li><router-link to="/">Home</router-link></li>
