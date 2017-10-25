@@ -3,28 +3,34 @@
     <div class="title">
       <h1>This is Admin/New</h1>
     </div>
-    <label for="name">Unesite ime(obavezno polje) : </label>
-    <input type="text" placeholder="Imex" v-model="model.ime" v-validate="'required'" name="name"/>
-    <div>
-      <button v-on:click="validate()">Validate</button>
-    </div>
+    <product-form @save-product="addProduct" v-bind:model="model" v-bind:manufacturers="manufacturers"></product-form>
   </div>     
 </template>
 <script>
-  export default{
-    name: 'New',
+  import ProductFrom from '@/components/products/ProductForm.vue'
+  export default {
     data () {
       return {
-        model: {
-          ime: 'Vlada'
-        }
+        model: {},
+        manufacturers: [
+          {
+            _id: 'sam',
+            name: 'Samsung'
+          },
+          {
+            _id: 'apple',
+            name: 'Apple'
+          }
+        ]
       }
     },
     methods: {
-      validate () {
-        console.log(this.model.ime)
-        console.log(this.errors)
+      addProduct (model) {
+        console.log('model', model)
       }
+    },
+    components: {
+      'product-form': ProductFrom
     }
   }
 </script>
